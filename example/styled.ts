@@ -1,4 +1,5 @@
 import styled, {createGlobalStyle} from 'styled-components';
+import { pinClassName } from '../src';
 
 export const GlobalStyles = createGlobalStyle`
   body {
@@ -8,6 +9,20 @@ export const GlobalStyles = createGlobalStyle`
 
   * {
     box-sizing: content-box;
+  }
+
+  .${pinClassName} {
+    width: 32px;
+    height: 32px;
+    padding: 5px;
+
+    &:hover {
+      background: rgba(255,255,255,0.7);
+    }
+
+    img {
+      background: transparent;
+    }
   }
 `;
 

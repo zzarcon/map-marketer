@@ -1,17 +1,28 @@
 import * as React from 'react';
 import {FC} from 'react';
-import { SidebarWrapper, SidebarItem } from './styled';
+import { SidebarWrapper, SidebarItem, SidebarItemName } from './styled';
 import { Marker } from './types';
 
 export interface SidebarProps {
   markers: Marker[];
+  onItemClick: (marker: Marker) => void;
+  activeMarker?: Marker;
 }
 
-export const Sidebar: FC<SidebarProps> = ({markers}) => {
+export const Sidebar: FC<SidebarProps> = ({markers, onItemClick, activeMarker}) => {
+  const setSelectedItem = (marker: Marker) => () => {
+    onItemClick(marker);
+  }
+  
   const sidebarContent = markers.map(marker => (
-    <SidebarItem key={marker.name}>
+    <SidebarItem 
+      isActive={marker === activeMarker}
+      key={marker.name}
+      onClick={setSelectedItem(marker)}
+      onMouseEnter={setSelectedItem(marker)}
+    >
       <img src={marker.imgSrc} />
-      {marker.name}
+      <SidebarItemName>{marker.name}</SidebarItemName>
     </SidebarItem>
   ))
 

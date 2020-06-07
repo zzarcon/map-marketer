@@ -1,30 +1,35 @@
 import * as React from 'react';
-import {GHCorner} from 'react-gh-corner';
 import {AppWrapper, MapWrapper, GlobalStyles} from './styled';
-import { MapMarketer } from '../src';
+import { MapMarketer, useCurrentLocation } from '../src';
 import {key} from './secret';
 import {markers} from './data';
 
-const repoUrl = 'https://github.com/map-marketer';
-
 const App = () => {
+  const currentLocation = useCurrentLocation();
+  const map = currentLocation ? (
+    <MapWrapper>
+      <MapMarketer
+        gmapProps={{
+          bootstrapURLKeys: {key},
+          defaultCenter: {
+            lat: currentLocation.latitude,
+            lng: currentLocation.longitude
+          },
+          defaultZoom: 15
+        }}
+        markers={markers}
+      />
+    </MapWrapper>
+  ) : (
+    <div>
+      Loading....
+    </div>
+  )
+
   return (
     <AppWrapper>
       <GlobalStyles />
-      <GHCorner openInNewTab href={repoUrl} />
-      <MapWrapper>
-        <MapMarketer
-          gmapProps={{
-            bootstrapURLKeys: {key},
-            defaultCenter: {
-              lat: -33.869467,
-              lng: 151.207363
-            },
-            defaultZoom: 15
-          }}
-          markers={markers}
-        />
-      </MapWrapper>
+      {map}
     </AppWrapper>
   )
 }
