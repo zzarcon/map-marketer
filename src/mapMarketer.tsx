@@ -1,12 +1,14 @@
 import * as React from 'react';
 import {FC, useState} from 'react';
 import GoogleMapReact from 'google-map-react';
-import { MapWrapper, ContentWrapper } from './styled';
+import { MapWrapper, ContentWrapper, CurrentLocationPin } from './styled';
 import {Marker} from './marker';
 import {Sidebar} from './sidebar';
 import { MapMarketerProps, Marker as MarkerType } from './types';
+import { useCurrentLocation } from './useCurrentLocation';
 
 export const MapMarketer: FC<MapMarketerProps> = ({gmapProps, markers}) => {
+  const currentLocation = useCurrentLocation();
   const [activeMarker, setActiveMarker] = useState<MarkerType | undefined>()
   const onMarkerHover = (marker: MarkerType) => () => {
     setActiveMarker(marker);
@@ -22,6 +24,14 @@ export const MapMarketer: FC<MapMarketerProps> = ({gmapProps, markers}) => {
   const onItemClick = (marker: MarkerType) => {
     setActiveMarker(marker);
   };
+  const currentLocationMarker = currentLocation && (
+    <CurrentLocationPin 
+      key="current-location"
+      lat={currentLocation.latitude}
+      lng={currentLocation.longitude}
+    />
+  );
+  console.log({currentLocation})
 
   return (
     <ContentWrapper>
@@ -33,6 +43,7 @@ export const MapMarketer: FC<MapMarketerProps> = ({gmapProps, markers}) => {
           }}
         >
           {markersContent}
+          {currentLocationMarker}
         </GoogleMapReact>
       </MapWrapper>
       <Sidebar

@@ -6,7 +6,7 @@ interface MarkerProps {
   lat: number;
   lng: number;
   imgSrc: string;
-  onMarkerHover: () => void;
+  onMarkerHover?: () => void;
   isFocused?: boolean;
   onClick?: () => void;
 }

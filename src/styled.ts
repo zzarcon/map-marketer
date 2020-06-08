@@ -69,3 +69,12 @@ export const SidebarItemName = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
 `;
+
+export const CurrentLocationPin = styled.div<{lat: number; lng: number}>`
+  width: 15px;
+  height: 15px;
+  background-color: #4185f4;
+  border-radius: 100%;
+  border: 2px solid white;
+  box-shadow: 0px 0px 8px 1px #4185f4;
+`;
