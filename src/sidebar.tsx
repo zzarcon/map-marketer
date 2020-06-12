@@ -21,7 +21,7 @@ export const Sidebar: FC<SidebarProps> = ({markers, onItemClick, activeMarker}) 
       onClick={setSelectedItem(marker)}
       onMouseEnter={setSelectedItem(marker)}
     >
-      <img src={marker.imgSrc} />
+      {marker.sidebarImgSrc && <img src={marker.sidebarImgSrc} />}
       <SidebarItemName>{marker.name}</SidebarItemName>
     </SidebarItem>
   ))

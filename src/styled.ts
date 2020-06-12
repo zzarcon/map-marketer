@@ -5,6 +5,10 @@ export const pinClassName = 'map-marketer-pin';
 export const MapWrapper = styled.div`
   height: calc(100vh - 100px);
   width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 `;
 
 export const ContentWrapper = styled.div`
@@ -14,17 +18,19 @@ export const ContentWrapper = styled.div`
 export const SidebarWrapper = styled.div`
   width: 300px;
   margin-left: 10px;
-  border: 1px solid;
+  background-color: white;
   height: calc(100vh - 100px);
   overflow: auto;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  color: #333;
 `
 interface MarkerWrapperProps {
   isFocused?: boolean
 }
 
 const markerFocusedStyles = (props: MarkerWrapperProps) => props.isFocused && `
-  border-color: black;
-  background-color: white;
+  opacity: 1;
 `;
 
 export const MarkerWrapper = styled.div`
@@ -33,11 +39,8 @@ export const MarkerWrapper = styled.div`
   border: 1px solid transparent;
   width: 50px;
   border-radius: 100%;
-  overflow: hidden;
+  opacity: 0.7;
   ${markerFocusedStyles}
-  &:hover {
-    border-color: black;
-  }
 
   img {
     width: inherit;
@@ -45,16 +48,24 @@ export const MarkerWrapper = styled.div`
     background-color: white;
   }
 `;
+export const MarkerName = styled.div`
+  white-space: nowrap;
+`;
+
 interface SidebarItemProps {
   isActive?: boolean;
 }
 const sidebarActiveStyles = (props: SidebarItemProps) => props.isActive && `
-  background: red;
+  background: #f0f0f0;
 `
 export const SidebarItem = styled.div`
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #e6e6e6;
   display: flex;
   align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: background .3s;
+  
   ${sidebarActiveStyles}
   img {
     height: 50px;
