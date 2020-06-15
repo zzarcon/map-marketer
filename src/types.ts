@@ -1,3 +1,4 @@
+import {ReactNode} from 'react';
 import {Props as GmapProps} from 'google-map-react';
 
 export interface Marker {
@@ -5,8 +6,10 @@ export interface Marker {
   lng: number;
   name: string;
   pinSrc: string;
+  images: string[];
+  detailsRender?: (marker: Marker) => ReactNode;
   sidebarImgSrc?: string;
-  // TODO: allow to pass any other props
+  [key: string]: any;
 }
 
 export interface MapMarketerProps {

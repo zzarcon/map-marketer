@@ -1,22 +1,51 @@
 import * as React from 'react';
 import {FC} from 'react';
-import {MarkerWrapper, pinClassName} from './styled';
+import {MarkerInfo, AdditionalInfoWrapper, MarkerImages, MarkerWrapper, pinClassName, MarkerDetail} from './styled';
+import { Marker as MarkerInterface } from './types';
 
-interface MarkerProps {
-  lat: number;
-  lng: number;
-  pinSrc: string;
-  name: string;
+interface MarkerProps extends MarkerInterface {
   onMarkerHover?: () => void;
   isFocused?: boolean;
   onClick?: () => void;
 }
 
+interface MarkerDetailProps extends MarkerInterface {
+  
+}
+
+const renderMarkerDetail = (props: MarkerDetailProps) => {
+  const {name, images, detailsRender} = props;
+  const imagesContent = images.map((image, key) => {
+    return (
+      <img key={key} src={image} alt="" />
+    )
+  });
+  const additionalInfo = detailsRender ? (
+    <AdditionalInfoWrapper>
+      {detailsRender(props)}
+    </AdditionalInfoWrapper>
+  ) : null;
+
+  return (
+    <MarkerDetail>
+      <MarkerImages>
+        {imagesContent}
+      </MarkerImages>
+      <MarkerInfo>
+        {name}
+        {additionalInfo}
+      </MarkerInfo>
+    </MarkerDetail>
+  )
+}
+
 // TODO: default to pin image if pinSrc is not defined
-export const Marker: FC<MarkerProps> = ({pinSrc, onClick, isFocused, onMarkerHover}) => {
+export const Marker: FC<MarkerProps> = (props) => {
+  const {pinSrc, onClick, isFocused, onMarkerHover} = props;
   return (
     <MarkerWrapper onClick={onClick} onMouseEnter={onMarkerHover} isFocused={isFocused} className={pinClassName}>
       <img src={pinSrc} />
+      {isFocused && renderMarkerDetail(props)}
     </MarkerWrapper>
   )
 }

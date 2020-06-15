@@ -1,14 +1,18 @@
 import styled from 'styled-components';
 
 export const pinClassName = 'map-marketer-pin';
+const boxStyles = `
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  color: #333;
+`;
 
 export const MapWrapper = styled.div`
   height: calc(100vh - 100px);
   width: 100%;
-  border-radius: 8px;
   overflow: hidden;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  ${boxStyles}
 `;
 
 export const ContentWrapper = styled.div`
@@ -18,12 +22,9 @@ export const ContentWrapper = styled.div`
 export const SidebarWrapper = styled.div`
   width: 300px;
   margin-left: 10px;
-  background-color: white;
   height: calc(100vh - 100px);
   overflow: auto;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  border-radius: 8px;
-  color: #333;
+  ${boxStyles}
 `
 interface MarkerWrapperProps {
   isFocused?: boolean
@@ -40,6 +41,8 @@ export const MarkerWrapper = styled.div`
   width: 50px;
   border-radius: 100%;
   opacity: 0.7;
+  position: relative;
+
   ${markerFocusedStyles}
 
   img {
@@ -88,4 +91,41 @@ export const CurrentLocationPin = styled.div<{lat: number; lng: number}>`
   border-radius: 100%;
   border: 2px solid white;
   box-shadow: 0px 0px 8px 1px #4185f4;
+`;
+
+export const MarkerDetail = styled.div`
+  ${boxStyles}
+  z-index: 1;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: -200px;
+  width: 280px;
+  height: 190px;
+  border: 1px solid transparent;
+  transition: all .3s;
+
+  &:hover {
+    box-shadow: 0px 0px 8px 1px #4185f4;
+    border: 1px solid #4185f4;
+  }
+`;
+
+export const MarkerImages = styled.div`
+  display: flex;
+  height: 100px;
+
+  img {
+    height: inherit;
+    border-right: 2px solid white;
+  }
+`;
+
+export const MarkerInfo = styled.div`
+  font-size: 16px;
+  padding: 10px;
+`;
+
+export const AdditionalInfoWrapper = styled.div`
+
 `;

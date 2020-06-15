@@ -31,7 +31,6 @@ export const MapMarketer: FC<MapMarketerProps> = ({gmapProps, markers}) => {
       lng={currentLocation.longitude}
     />
   );
-  console.log({currentLocation})
 
   return (
     <ContentWrapper>
