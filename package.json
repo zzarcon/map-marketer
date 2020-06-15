@@ -37,6 +37,7 @@
   "keywords": [],
   "dependencies": {
     "@types/google-map-react": "^1.1.8",
-    "google-map-react": "^1.1.7"
+    "google-map-react": "^1.1.7",
+    "react-blanket": "^0.0.2"
   }
 }

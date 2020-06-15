@@ -129,3 +129,7 @@ export const MarkerInfo = styled.div`
 export const AdditionalInfoWrapper = styled.div`
 
 `;
+
+export const BlanketContent = styled.div`
+  color: white;
+`;

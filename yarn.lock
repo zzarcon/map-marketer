@@ -8301,6 +8301,11 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
+react-blanket@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/react-blanket/-/react-blanket-0.0.2.tgz#3cb98da3d9b13831d2c264b07c3fac0f79b4981b"
+  integrity sha512-WDVzKk+d0fZfZdM5lU294Jqe/oNppynLhJybo4Tk7A/omQyAH+zG8WXU1KyT80BxYzxG3glk7WWKyWTUMGTGew==
+
 react-dom@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"

@@ -33,7 +33,6 @@ export const markers: Marker[] = [{
   images: [
     'prince_alfred_secondary_2.jpg',
     'prince_alfred_secondary.jpg',
-
   ],
   detailsRender
 }, {
