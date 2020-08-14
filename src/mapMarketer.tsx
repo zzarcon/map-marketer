@@ -8,7 +8,7 @@ import {Sidebar} from './sidebar';
 import { MapMarketerProps, Marker as MarkerType } from './types';
 import { useCurrentLocation } from './useCurrentLocation';
 
-export const MapMarketer: FC<MapMarketerProps> = ({gmapProps, markers}) => {
+export const MapMarketer: FC<MapMarketerProps> = ({gmapProps, markers, detailsRender, fullScreenRender}) => {
   const currentLocation = useCurrentLocation();
   const [activeMarker, setActiveMarker] = useState<MarkerType | undefined>()
   const [isBlanketVisible, setBlanketVisible] = useState(false);
@@ -16,7 +16,7 @@ export const MapMarketer: FC<MapMarketerProps> = ({gmapProps, markers}) => {
     setActiveMarker(marker);
   }
   const hideBlanket = () => setBlanketVisible(false);
-  const onMarkerClick = (marker: MarkerType) => () => {
+  const onMarkerClick = () => () => {
     setBlanketVisible(true)
   }
   const markersContent = markers.map((marker) => (
@@ -24,7 +24,8 @@ export const MapMarketer: FC<MapMarketerProps> = ({gmapProps, markers}) => {
       key={marker.name}
       onMarkerHover={onMarkerHover(marker)}
       isFocused={activeMarker === marker}
-      onClick={onMarkerClick(marker)}
+      onClick={onMarkerClick()}
+      detailsRender={detailsRender}
       {...marker} 
     />
   ));
@@ -57,10 +58,10 @@ export const MapMarketer: FC<MapMarketerProps> = ({gmapProps, markers}) => {
         onItemClick={onItemClick}
         activeMarker={activeMarker}
       />
-      {isBlanketVisible && activeMarker && (
+      {isBlanketVisible && activeMarker && fullScreenRender && (
         <Blanket onClose={hideBlanket}>
           <BlanketContent>
-            {activeMarker.name}
+            {fullScreenRender(activeMarker)}
           </BlanketContent>
         </Blanket>
       )}

@@ -7,7 +7,6 @@ export interface Marker {
   name: string;
   pinSrc: string;
   images: string[];
-  detailsRender?: (marker: Marker) => ReactNode;
   sidebarImgSrc?: string;
   [key: string]: any;
 }
@@ -15,4 +14,6 @@ export interface Marker {
 export interface MapMarketerProps {
   gmapProps: GmapProps;
   markers: Marker[];
+  detailsRender?: (marker: Marker) => ReactNode;
+  fullScreenRender?: (marker: Marker) => ReactNode;
 }

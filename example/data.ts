@@ -1,5 +1,4 @@
 import { Marker } from "../src";
-import {detailsRender} from './detailsRender';
 
 const getAssetUrl = (path: string): string => `/assets/${path}`;
 
@@ -12,8 +11,7 @@ export const markers: Marker[] = [{
     'prince_alfred_park_bars.jpg',
     'prince_alfred_park_pano.jpg',
     'prince_alfred_park.jpg'
-  ],
-  detailsRender
+  ]
 }, {
   pinSrc: 'pin_icon2.png',
   lat: -33.888384,
@@ -23,8 +21,7 @@ export const markers: Marker[] = [{
     'prince_alfred_park_bars.jpg',
     'prince_alfred_park_pano.jpg',
     'prince_alfred_park.jpg'
-  ],
-  detailsRender
+  ]
 }, {
   pinSrc: 'pin_icon2.png',
   lat: -33.888526,
@@ -33,8 +30,7 @@ export const markers: Marker[] = [{
   images: [
     'prince_alfred_secondary_2.jpg',
     'prince_alfred_secondary.jpg',
-  ],
-  detailsRender
+  ]
 }, {
   pinSrc: 'pin_icon2.png',
   lat: -33.887339,
@@ -43,8 +39,7 @@ export const markers: Marker[] = [{
   images: [
     'prince_alfred_park_small.jpg',
     'Prince-Albert-Park-Surry-Hills-144358.jpg'
-  ],
-  detailsRender
+  ]
 }].map(marker => ({
   ...marker,
   pinSrc: getAssetUrl(marker.pinSrc),

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {FC} from 'react';
+import {FC, ReactNode} from 'react';
 import {MarkerInfo, AdditionalInfoWrapper, MarkerImages, MarkerWrapper, pinClassName, MarkerDetail} from './styled';
 import { Marker as MarkerInterface } from './types';
 
@@ -7,10 +7,11 @@ interface MarkerProps extends MarkerInterface {
   onMarkerHover?: () => void;
   isFocused?: boolean;
   onClick?: () => void;
+  detailsRender?: (marker: MarkerInterface) => ReactNode;
 }
 
 interface MarkerDetailProps extends MarkerInterface {
-  
+  detailsRender?: (marker: MarkerInterface) => ReactNode;
 }
 
 const renderMarkerDetail = (props: MarkerDetailProps) => {
