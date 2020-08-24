@@ -25,6 +25,11 @@ export const SidebarWrapper = styled.div`
   height: calc(100vh - 100px);
   overflow: auto;
   ${boxStyles}
+
+  /* @media (max-width: 800px) { */
+  @media (max-device-width: 500px) {
+    display: none;
+  }
 `
 interface MarkerWrapperProps {
   isFocused?: boolean
