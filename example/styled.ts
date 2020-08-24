@@ -12,13 +12,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .${pinClassName} {
-    width: 32px;
-    height: 32px;
-    padding: 5px;
-
-    img {
-      background: transparent;
-    }
+    
   }
 `;
 

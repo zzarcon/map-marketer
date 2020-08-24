@@ -40,7 +40,6 @@ export const MarkerWrapper = styled.div`
   border: 1px solid transparent;
   width: 50px;
   border-radius: 100%;
-  opacity: 0.7;
   position: relative;
 
   ${markerFocusedStyles}

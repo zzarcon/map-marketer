@@ -46,7 +46,15 @@ export const MapMarketer: FC<MapMarketerProps> = ({gmapProps, markers, detailsRe
         <GoogleMapReact
           {...gmapProps}
           options={{
-            clickableIcons: false
+            clickableIcons: false,
+            zoomControl: true,
+            panControl: true,
+            // option
+            // mapTypeControl: true,
+            // panControl: true,
+            // zoomControl: true,
+            // rotateControl: true,
+            // scaleControl: true,
           }}
         >
           {markersContent}
