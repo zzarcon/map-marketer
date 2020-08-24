@@ -2,46 +2,89 @@ import { Marker } from "../src";
 
 const getAssetUrl = (path: string): string => `/assets/${path}`;
 
-export const markers: Marker[] = [{
-  pinSrc: 'pin_icon2.png',
-  lat: -33.8918086,
-  lng: 151.1996371,
-  name: 'Best park',
-  images: [
-    'prince_alfred_park_bars.jpg',
-    'prince_alfred_park_pano.jpg',
-    'prince_alfred_park.jpg'
-  ]
-}, {
-  pinSrc: 'pin_icon2.png',
-  lat: -33.888384,
-  lng: 151.202990,
-  name: 'Prince Alfred main park',
-  images: [
-    'prince_alfred_park_bars.jpg',
-    'prince_alfred_park_pano.jpg',
-    'prince_alfred_park.jpg'
-  ]
-}, {
-  pinSrc: 'pin_icon2.png',
-  lat: -33.888526,
-  lng: 151.203434,
-  name: 'Prince Alfred secondary park',
-  images: [
-    'prince_alfred_secondary_2.jpg',
-    'prince_alfred_secondary.jpg',
-  ]
-}, {
-  pinSrc: 'pin_icon2.png',
-  lat: -33.887339,
-  lng: 151.204884,
-  name: 'Prince Alfred small park',
-  images: [
-    'prince_alfred_park_small.jpg',
-    'Prince-Albert-Park-Surry-Hills-144358.jpg'
-  ]
-}].map(marker => ({
+export const markers: Marker[] = [
+  {
+    address: '',
+    googleLink: '',
+    lat: -33.867388,
+    lng: 151.205229,
+    pinSrc: 'st_dreux/logo.jpg',
+    sidebarImgSrc: 'st_dreux/logo.jpg',
+    name: 'St.Dreux Coffee Roasters',
+    instagram: 'st.dreuxcoffee',
+    website: 'https://saintdreux.com',
+    images: [],
+  }
+  , {
+    address: '',
+    googleLink: '',
+    lat: -33.881142,
+    lng: 151.209654,
+    pinSrc: 'single_o/logo.jpg',
+    sidebarImgSrc: 'single_o/logo.jpg',
+    name: 'Single O Surry Hills',
+    instagram: 'single_o',
+    website: 'https://singleo.com',
+    images: [],
+  }, {
+    address: '',
+    googleLink: '',
+    lat: -33.868604,
+    lng: 151.204801,
+    pinSrc: 'skittle_lane/logo.jpg',
+    sidebarImgSrc: 'skittle_lane/logo.jpg',
+    name: 'Skittle Lane',
+    instagram: 'skittlelanecoffee',
+    website: 'https://skittlelane.com',
+    images: [],
+  }, {
+    address: '',
+    googleLink: '',
+    lat: -33.879383,
+    lng: 151.211142,
+    pinSrc: 'pcp/logo.jpg',
+    sidebarImgSrc: 'pcp/logo.jpg',
+    name: 'Paramount Coffee Project',
+    instagram: 'pcpsydney',
+    website: 'http://www.paramountcoffeeproject.com.au',
+    images: [],
+  }, {
+    address: '',
+    googleLink: '',
+    lat: -33.868574,
+    lng: 151.204188,
+    pinSrc: 'kent_st/logo.jpg',
+    sidebarImgSrc: 'kent_st/logo.jpg',
+    name: 'Kent Street Fare',
+    instagram: 'kentstreetfare',
+    website: 'https://saintdreux.com',
+    images: [],
+  }, {
+    address: '',
+    googleLink: '',
+    lat: -33.864960,
+    lng: 151.205922,
+    pinSrc: 'bonnie/logo.jpg',
+    sidebarImgSrc: 'bonnie/logo.jpg',
+    name: 'Bonnie Coffee.',
+    instagram: 'bonniecoffeeco',
+    website: 'http://bonnie.coffee',
+    images: [],
+  }, {
+    address: '',
+    googleLink: '',
+    lat: -33.869645,
+    lng: 151.206037,
+    pinSrc: 'single_o/logo.jpg',
+    sidebarImgSrc: 'single_o/logo.jpg',
+    name: 'Single O CBD',
+    instagram: 'single_o',
+    website: 'https://singleo.com',
+    images: [],
+  }
+].map(marker => ({
   ...marker,
   pinSrc: getAssetUrl(marker.pinSrc),
+  sidebarImgSrc: getAssetUrl(marker.sidebarImgSrc),
   images: marker.images.map(image => getAssetUrl(image))
 }));
