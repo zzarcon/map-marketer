@@ -65,15 +65,15 @@ export const SidebarItem = styled.div`
   border-bottom: 1px solid #e6e6e6;
   display: flex;
   align-items: center;
-  padding: 10px;
   cursor: pointer;
   transition: background .3s;
   
   ${sidebarActiveStyles}
   img {
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     margin-right: 5px;
+    border-right: 1px solid #e6e6e6;
     background-color: white;
   }
 `;
