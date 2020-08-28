@@ -8,7 +8,7 @@ import {Sidebar} from './sidebar';
 import { MapMarketerProps, Marker as MarkerType } from './types';
 import { useCurrentLocation } from './useCurrentLocation';
 
-export const MapMarketer: FC<MapMarketerProps> = ({gmapProps, markers, detailsRender, fullScreenRender}) => {
+export const MapMarketer: FC<MapMarketerProps> = ({gmapProps, markers, detailsRender, fullScreenRender, className}) => {
   const currentLocation = useCurrentLocation();
   const [activeMarker, setActiveMarker] = useState<MarkerType | undefined>()
   const [isBlanketVisible, setBlanketVisible] = useState(false);
@@ -41,7 +41,7 @@ export const MapMarketer: FC<MapMarketerProps> = ({gmapProps, markers, detailsRe
   );
 
   return (
-    <ContentWrapper>
+    <ContentWrapper className={className}>
       <MapWrapper>
         <GoogleMapReact
           {...gmapProps}

@@ -16,4 +16,5 @@ export interface MapMarketerProps {
   markers: Marker[];
   detailsRender?: (marker: Marker) => ReactNode;
   fullScreenRender?: (marker: Marker) => ReactNode;
+  className?: string;
 }

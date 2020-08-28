@@ -9,7 +9,6 @@ const boxStyles = `
 `;
 
 export const MapWrapper = styled.div`
-  height: calc(100vh - 100px);
   width: 100%;
   overflow: hidden;
   ${boxStyles}
@@ -17,12 +16,12 @@ export const MapWrapper = styled.div`
 
 export const ContentWrapper = styled.div`
   display: flex;
+  height: calc(100vh - 100px);
 `;
 
 export const SidebarWrapper = styled.div`
   width: 300px;
   margin-left: 10px;
-  height: calc(100vh - 100px);
   overflow: auto;
   ${boxStyles}
 
