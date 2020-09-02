@@ -70,7 +70,7 @@ export const MapMarketer: FC<MapMarketerProps> = ({gmapProps, markers, detailsRe
       {isBlanketVisible && activeMarker && fullScreenRender && (
         <Blanket onClose={hideBlanket}>
           <BlanketContent>
-            {fullScreenRender(activeMarker)}
+            {fullScreenRender(activeMarker, hideBlanket)}
           </BlanketContent>
         </Blanket>
       )}

@@ -15,6 +15,6 @@ export interface MapMarketerProps {
   gmapProps: GmapProps;
   markers: Marker[];
   detailsRender?: (marker: Marker) => ReactNode;
-  fullScreenRender?: (marker: Marker) => ReactNode;
+  fullScreenRender?: (marker: Marker, hideBlanket: () => void) => ReactNode;
   className?: string;
 }

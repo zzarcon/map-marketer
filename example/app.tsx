@@ -6,13 +6,14 @@ import {key} from './secret';
 import {markers} from './data';
 import { detailsRender } from './detailsRender';
 
-const fullScreenRender = (marker: Marker): ReactNode => {
+const fullScreenRender = (marker: Marker, hideBlanket: () => void): ReactNode => {
   return (
     <div>
       Full screen :)
       <div>
         {marker.name}
       </div>
+      <button onClick={hideBlanket}>Close</button>
     </div>
   )
 }
