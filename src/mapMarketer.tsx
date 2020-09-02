@@ -16,7 +16,8 @@ export const MapMarketer: FC<MapMarketerProps> = ({gmapProps, markers, detailsRe
     setActiveMarker(marker);
   }
   const hideBlanket = () => setBlanketVisible(false);
-  const onMarkerClick = () => () => {
+  const onMarkerClick = (marker: MarkerType) => () => {
+    setActiveMarker(marker);
     setBlanketVisible(true)
   }
   const markersContent = markers.map((marker) => (
@@ -24,7 +25,7 @@ export const MapMarketer: FC<MapMarketerProps> = ({gmapProps, markers, detailsRe
       key={marker.name}
       onMarkerHover={onMarkerHover(marker)}
       isFocused={activeMarker === marker}
-      onClick={onMarkerClick()}
+      onClick={onMarkerClick(marker)}
       detailsRender={detailsRender}
       {...marker} 
     />

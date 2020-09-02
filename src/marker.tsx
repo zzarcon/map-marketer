@@ -16,7 +16,7 @@ interface MarkerDetailProps extends MarkerInterface {
 
 const renderMarkerDetail = (props: MarkerDetailProps) => {
   const {name, images, detailsRender} = props;
-  const imagesContent = images.map((image, key) => {
+  const imagesContent = images.slice(0, 3).map((image, key) => {
     return (
       <img key={key} src={image} alt="" />
     )
